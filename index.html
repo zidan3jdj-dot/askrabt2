@@ -14,7 +14,7 @@
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
 
 <style>
-/* ===== متغيرات CSS - تصميم مختلف تماماً ===== */
+/* ===== متغيرات CSS ===== */
 :root {
     --primary: #E84855;
     --primary-dark: #C1313E;
@@ -51,27 +51,13 @@ body {
     padding: 12px;
     background-image: 
         radial-gradient(circle at 20% 30%, rgba(232, 72, 85, 0.08) 0%, transparent 30%),
-        radial-gradient(circle at 80% 70%, rgba(249, 199, 79, 0.06) 0%, transparent 35%),
-        radial-gradient(circle at 40% 90%, rgba(30, 45, 64, 0.1) 0%, transparent 40%);
+        radial-gradient(circle at 80% 70%, rgba(249, 199, 79, 0.06) 0%, transparent 35%);
     position: relative;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="1" fill="rgba(232,72,85,0.2)"/></svg>');
-    pointer-events: none;
-    z-index: -1;
-    opacity: 0.5;
 }
 
 /* ===== شاشات التطبيق ===== */
@@ -92,26 +78,7 @@ body::before {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== تأثير الطائرة المتحركة ===== */
-.plane-background {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    font-size: 2.5rem;
-    color: rgba(232, 72, 85, 0.2);
-    z-index: -1;
-    animation: fly 20s linear infinite;
-}
-
-@keyframes fly {
-    0% { transform: translateX(0) translateY(0) rotate(0deg); opacity: 0.2; }
-    25% { transform: translateX(-30px) translateY(-15px) rotate(-5deg); opacity: 0.3; }
-    50% { transform: translateX(-60px) translateY(0) rotate(0deg); opacity: 0.2; }
-    75% { transform: translateX(-30px) translateY(15px) rotate(5deg); opacity: 0.3; }
-    100% { transform: translateX(0) translateY(0) rotate(0deg); opacity: 0.2; }
-}
-
-/* ===== عداد الوقت - تصميم مختلف ===== */
+/* ===== عداد الوقت ===== */
 .timer-container {
     position: fixed;
     top: 12px;
@@ -198,7 +165,7 @@ body::before {
     50% { opacity: 0.7; }
 }
 
-/* ===== شاشة تسجيل الدخول - تصميم كراش ===== */
+/* ===== شاشة تسجيل الدخول ===== */
 .login-container {
     background: rgba(13, 27, 42, 0.95);
     backdrop-filter: blur(20px);
@@ -212,17 +179,6 @@ body::before {
     z-index: 1;
 }
 
-.login-container::after {
-    content: '✈️';
-    position: absolute;
-    bottom: -20px;
-    right: -20px;
-    font-size: 8rem;
-    opacity: 0.03;
-    transform: rotate(-15deg);
-    z-index: -1;
-}
-
 .login-header {
     text-align: center;
     margin-bottom: 30px;
@@ -232,13 +188,6 @@ body::before {
     font-size: 4rem;
     margin-bottom: 15px;
     display: inline-block;
-    animation: shake 3s infinite;
-}
-
-@keyframes shake {
-    0%, 100% { transform: translateX(0) rotate(0deg); }
-    5%, 15% { transform: translateX(-5px) rotate(-5deg); }
-    10%, 20% { transform: translateX(5px) rotate(5deg); }
 }
 
 .login-header h1 {
@@ -288,10 +237,6 @@ body::before {
     box-shadow: 0 0 0 3px rgba(232, 72, 85, 0.1);
 }
 
-.input-field::placeholder {
-    color: rgba(108, 117, 125, 0.6);
-}
-
 /* ===== زر تسجيل الدخول ===== */
 .login-btn {
     display: block;
@@ -314,11 +259,6 @@ body::before {
 .login-btn:hover:not(:disabled) {
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(232, 72, 85, 0.5);
-}
-
-.login-btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
 }
 
 /* ===== زر الواتساب ===== */
@@ -345,13 +285,7 @@ body::before {
     transition: all 0.3s ease;
 }
 
-.whatsapp-btn:hover {
-    background: #1da851;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-}
-
-/* ===== بطاقات المنصات - تصميم كراش ===== */
+/* ===== بطاقات المنصات ===== */
 .platform-container {
     background: rgba(13, 27, 42, 0.95);
     backdrop-filter: blur(20px);
@@ -360,8 +294,6 @@ body::before {
     border: 1px solid rgba(232, 72, 85, 0.3);
     padding: 28px 22px;
     box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5);
-    position: relative;
-    z-index: 1;
 }
 
 .header {
@@ -410,7 +342,6 @@ body::before {
 .platform-card.active {
     border-color: var(--success);
     background: rgba(76, 175, 80, 0.08);
-    box-shadow: 0 0 20px rgba(76, 175, 80, 0.2);
 }
 
 .platform-logo {
@@ -421,7 +352,13 @@ body::before {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.2rem;
+    overflow: hidden;
+}
+
+.platform-logo img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
 }
 
 .platform-info h3 {
@@ -457,12 +394,7 @@ body::before {
     transform: scale(1);
 }
 
-.platform-check i {
-    font-size: 12px;
-    color: var(--darker);
-}
-
-/* ===== شاشة اللعبة - تصميم كراش ===== */
+/* ===== شاشة اللعبة - CRASH واقعي ===== */
 .crash-game-container {
     background: rgba(13, 27, 42, 0.95);
     border-radius: 32px;
@@ -476,7 +408,7 @@ body::before {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     padding-bottom: 15px;
     border-bottom: 2px dashed rgba(232, 72, 85, 0.3);
 }
@@ -505,36 +437,38 @@ body::before {
     font-weight: 600;
 }
 
-/* ===== شاشة الطائرة والرسم البياني ===== */
+/* ===== شاشة الطائرة بالصورة ===== */
 .plane-visual {
     background: rgba(10, 18, 28, 0.8);
     border-radius: 24px;
-    padding: 25px 20px;
+    padding: 30px 20px;
     margin-bottom: 25px;
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(232, 72, 85, 0.2);
-}
-
-.plane-animation {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
+    min-height: 240px;
 }
 
-.plane-icon {
-    font-size: 4rem;
-    transform: rotate(-15deg);
-    animation: planeFloat 2s ease-in-out infinite;
-    filter: drop-shadow(0 0 15px rgba(232, 72, 85, 0.6));
-    margin-bottom: 10px;
+.plane-image-container {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    transition: all 0.1s ease;
 }
 
-@keyframes planeFloat {
-    0%, 100% { transform: rotate(-15deg) translateY(0); }
-    50% { transform: rotate(-15deg) translateY(-8px); }
+.plane-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(232, 72, 85, 0.6));
+    transition: transform 0.1s ease;
 }
 
 .plane-multiplier {
@@ -544,17 +478,23 @@ body::before {
     text-shadow: 0 0 20px rgba(249, 199, 79, 0.5);
     line-height: 1;
     margin-bottom: 5px;
+    font-family: 'Courier New', monospace;
 }
 
 .plane-status {
     font-size: 1rem;
     color: var(--gray);
-    font-weight: 500;
+    font-weight: 600;
+    margin-top: 10px;
+    padding: 8px 20px;
+    border-radius: 100px;
+    background: rgba(0,0,0,0.3);
 }
 
 /* ===== شريط التقدم ===== */
 .flight-path {
     margin-top: 20px;
+    width: 100%;
 }
 
 .path-line {
@@ -574,22 +514,33 @@ body::before {
     position: relative;
 }
 
-.path-progress::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 10px;
-    height: 100%;
-    background: white;
-    box-shadow: 0 0 15px white;
-    border-radius: 50%;
-    animation: pulseLight 1s infinite;
+/* ===== مؤقت العد التنازلي ===== */
+.countdown-timer {
+    background: rgba(232, 72, 85, 0.15);
+    border-radius: 20px;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    border: 1px solid rgba(232, 72, 85, 0.3);
 }
 
-@keyframes pulseLight {
-    0%, 100% { opacity: 0.8; }
-    50% { opacity: 0.4; }
+.countdown-label {
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin-bottom: 5px;
+}
+
+.countdown-value {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--accent);
+    font-family: 'Courier New', monospace;
+}
+
+.countdown-unit {
+    font-size: 1rem;
+    color: var(--gray);
+    margin-right: 5px;
 }
 
 /* ===== توقع المضاعف ===== */
@@ -616,12 +567,7 @@ body::before {
     line-height: 1;
     margin-bottom: 5px;
     text-shadow: 0 0 15px rgba(249, 199, 79, 0.4);
-}
-
-.prediction-note {
-    font-size: 0.8rem;
-    color: var(--gray);
-    text-align: center;
+    font-family: 'Courier New', monospace;
 }
 
 /* ===== قائمة التوقعات السابقة ===== */
@@ -668,10 +614,6 @@ body::before {
     color: var(--danger);
 }
 
-.history-item i {
-    font-size: 0.8rem;
-}
-
 /* ===== أزرار التحكم ===== */
 .crash-controls {
     display: flex;
@@ -706,9 +648,9 @@ body::before {
     border: 1px solid rgba(232, 72, 85, 0.3);
 }
 
-.crash-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(232, 72, 85, 0.4);
+.crash-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 /* ===== الرسائل التنبيهية ===== */
@@ -758,11 +700,6 @@ body::before {
     font-size: 0.8rem;
 }
 
-/* ===== تأثيرات إضافية ===== */
-.glow-text {
-    text-shadow: 0 0 10px var(--primary);
-}
-
 .highlight {
     color: var(--accent);
     font-weight: 900;
@@ -770,6 +707,11 @@ body::before {
 
 /* ===== تحسينات الجوال ===== */
 @media (max-width: 380px) {
+    .plane-image-container {
+        width: 100px;
+        height: 100px;
+    }
+    
     .plane-multiplier {
         font-size: 2.8rem;
     }
@@ -778,25 +720,14 @@ body::before {
         font-size: 2.4rem;
     }
     
-    .platform-logo {
-        width: 60px;
-        height: 60px;
+    .countdown-value {
         font-size: 1.8rem;
-    }
-    
-    .platform-info h3 {
-        font-size: 1.2rem;
     }
 }
 </style>
 </head>
 
 <body>
-
-<!-- تأثير الطائرة المتحركة في الخلفية -->
-<div class="plane-background">
-    <i class="fas fa-paper-plane"></i>
-</div>
 
 <!-- الرسائل التنبيهية -->
 <div class="alert" id="alert"></div>
@@ -852,7 +783,7 @@ body::before {
         </div>
         
         <div class="footer">
-            <p>سكربت CRASH v1.0 | جميع الحقوق محفوظة</p>
+            <p>سكربت CRASH v2.0 | محاكاة واقعية</p>
         </div>
     </div>
 </div>
@@ -861,7 +792,7 @@ body::before {
 <div class="screen" id="platformSelection">
     <div class="platform-container">
         <div class="header">
-            <div class="crash-icon" style="font-size: 3rem;">✈️</div>
+            <div style="font-size: 3rem; margin-bottom: 10px;">✈️</div>
             <h1>CRASH</h1>
             <p>اختر منصة المراهنات</p>
         </div>
@@ -870,7 +801,7 @@ body::before {
             <div class="platform-card" id="platform1xbet" onclick="selectPlatform('1xbet')">
                 <div class="platform-check"><i class="fas fa-check"></i></div>
                 <div class="platform-logo">
-                    <i class="fas fa-dice" style="color: #FF6B9D;"></i>
+                    <img src="2.png" alt="1xbet" id="1xbet-img">
                 </div>
                 <div class="platform-info">
                     <h3>1XBET</h3>
@@ -881,7 +812,7 @@ body::before {
             <div class="platform-card" id="platformMelbet" onclick="selectPlatform('melbet')">
                 <div class="platform-check"><i class="fas fa-check"></i></div>
                 <div class="platform-logo">
-                    <i class="fas fa-coins" style="color: #00DFA2;"></i>
+                    <img src="3.png" alt="Melbet" id="melbet-img">
                 </div>
                 <div class="platform-info">
                     <h3>MELBET</h3>
@@ -895,7 +826,7 @@ body::before {
         </button>
         
         <div class="footer">
-            <p>تحليل أكثر من 1000 جولة سابقة</p>
+            <p>تحليل أكثر من 5000 جولة سابقة</p>
         </div>
     </div>
 </div>
@@ -927,7 +858,7 @@ body::before {
         </button>
         
         <div class="footer">
-            <p>تحليل فوري <span class="highlight">خلال 10 ثواني</span></p>
+            <p>تحليل فوري <span class="highlight">خلال 5 ثواني</span></p>
         </div>
     </div>
 </div>
@@ -936,8 +867,8 @@ body::before {
 <div class="screen" id="loading">
     <div class="platform-container">
         <div style="text-align: center;">
-            <div style="font-size: 4rem; margin-bottom: 20px; animation: planeFloat 1.5s infinite;">
-                ✈️
+            <div style="width: 100px; height: 100px; margin: 0 auto 20px;">
+                <img src="1.png" alt="طائرة" style="width: 100%; height: 100%; object-fit: contain; animation: spin 2s linear infinite;">
             </div>
             
             <h2 style="font-size: 1.8rem; color: var(--primary); margin-bottom: 10px; font-weight: 900;" id="loadingTitle">
@@ -960,17 +891,13 @@ body::before {
             <div style="background: rgba(232,72,85,0.05); border-radius: 20px; padding: 20px; border: 1px solid rgba(232,72,85,0.2);">
                 <p style="color: var(--gray); margin-bottom: 8px;">المنصة: <span style="color: var(--light); font-weight: 700;" id="platformInfo">-</span></p>
                 <p style="color: var(--gray); margin-bottom: 8px;">معرف المستخدم: <span style="color: var(--light); font-weight: 700;" id="userIdInfo">-</span></p>
-                <p style="color: var(--gray);">الوقت المتبقي: <span style="color: var(--accent); font-weight: 700;" id="timeRemaining">10 ثواني</span></p>
-            </div>
-            
-            <div class="footer" style="margin-top: 25px;">
-                <p>جاري تحليل خوارزميات الطائرة...</p>
+                <p style="color: var(--gray);">الوقت المتبقي: <span style="color: var(--accent); font-weight: 700;" id="timeRemaining">5 ثواني</span></p>
             </div>
         </div>
     </div>
 </div>
 
-<!-- شاشة اللعبة - CRASH -->
+<!-- شاشة اللعبة - CRASH واقعي -->
 <div class="screen" id="game">
     <div class="crash-game-container">
         <div class="crash-header">
@@ -983,21 +910,22 @@ body::before {
             </div>
         </div>
         
-        <!-- شاشة الطائرة -->
+        <!-- شاشة الطائرة بالصورة -->
         <div class="plane-visual">
-            <div class="plane-animation">
-                <div class="plane-icon">
-                    <i class="fas fa-paper-plane"></i>
-                </div>
-                <div class="plane-multiplier" id="currentMultiplier">1.00x</div>
-                <div class="plane-status" id="planeStatus">الطائرة في حالة إقلاع ✈️</div>
+            <div class="plane-image-container" id="planeImageContainer">
+                <img src="1.png" class="plane-image" id="planeImage" alt="طائرة">
             </div>
-            
-            <div class="flight-path">
-                <div class="path-line">
-                    <div class="path-progress" id="flightProgress" style="width: 0%;"></div>
-                </div>
+            <div class="plane-multiplier" id="currentMultiplier">1.00x</div>
+            <div class="plane-status" id="planeStatus">⏳ انتظار الجولة التالية...</div>
+        </div>
+        
+        <!-- مؤقت العد التنازلي للجولة القادمة -->
+        <div class="countdown-timer" id="countdownTimer">
+            <div class="countdown-label">
+                <i class="fas fa-clock"></i> الجولة القادمة تبدأ خلال
             </div>
+            <div class="countdown-value" id="countdownValue">5.0</div>
+            <span class="countdown-unit">ثانية</span>
         </div>
         
         <!-- توقع المضاعف -->
@@ -1006,8 +934,8 @@ body::before {
                 <i class="fas fa-bullseye" style="color: var(--primary);"></i> توقع انفجار الطائرة
             </div>
             <div class="prediction-value" id="predictionValue">2.45x</div>
-            <div class="prediction-note">
-                نسبة الدقة: <span style="color: var(--success); font-weight: 700;" id="accuracyRate">94%</span>
+            <div class="prediction-note" style="color: var(--gray); font-size: 0.8rem; text-align: center;">
+                دقة التوقع: <span style="color: var(--success); font-weight: 700;" id="accuracyRate">94%</span>
             </div>
         </div>
         
@@ -1018,28 +946,13 @@ body::before {
             </div>
             <div class="history-list" id="historyList">
                 <!-- سيتم التعبئة ديناميكياً -->
-                <div class="history-item">
-                    <i class="fas fa-check-circle" style="color: var(--success);"></i> 2.34x
-                </div>
-                <div class="history-item">
-                    <i class="fas fa-check-circle" style="color: var(--success);"></i> 1.89x
-                </div>
-                <div class="history-item crashed">
-                    <i class="fas fa-times-circle"></i> 3.12x
-                </div>
-                <div class="history-item">
-                    <i class="fas fa-check-circle" style="color: var(--success);"></i> 1.56x
-                </div>
             </div>
         </div>
         
         <!-- أزرار التحكم -->
         <div class="crash-controls">
-            <button class="crash-btn predict" onclick="predictCrash()">
+            <button class="crash-btn predict" onclick="forcePrediction()" id="predictBtn">
                 <i class="fas fa-magic"></i> توقع جديد
-            </button>
-            <button class="crash-btn reset" onclick="resetGame()">
-                <i class="fas fa-sync-alt"></i> إعادة
             </button>
             <button class="crash-btn reset" onclick="exitGame()">
                 <i class="fas fa-sign-out-alt"></i> خروج
@@ -1047,7 +960,7 @@ body::before {
         </div>
         
         <div class="footer">
-            <p>خوارزمية تنبؤ <span class="highlight">CRASH</span> - دقة تصل إلى 95%</p>
+            <p>خوارزمية تنبؤ <span class="highlight">CRASH PRO</span> - محاكاة واقعية</p>
         </div>
     </div>
 </div>
@@ -1081,13 +994,12 @@ let userID = "";
 let predictionHistory = [];
 let currentMultiplier = 1.00;
 let flightInterval = null;
+let countdownInterval = null;
 let isFlying = false;
+let isWaiting = false;
 let crashMultiplier = 0;
-
-// ===== تهيئة الجسيمات =====
-function initParticles() {
-    // بسيطة للتصميم الجديد
-}
+let gameRound = 0;
+let predictionAccuracy = 85;
 
 // ===== عرض رسالة تنبيهية =====
 function showAlert(message, type = 'info', duration = 3000) {
@@ -1174,14 +1086,11 @@ function updateTimer() {
     if (remaining <= 60) {
         timerBox.classList.add('danger');
         timerBox.classList.remove('warning');
-        document.getElementById('timerLabel').textContent = 'انفجار وشيك!';
+        document.getElementById('timerLabel').textContent = 'انتهاء الجلسة!';
     } else if (remaining <= 300) {
         timerBox.classList.add('warning');
         timerBox.classList.remove('danger');
-        document.getElementById('timerLabel').textContent = 'احترس!';
-    } else {
-        timerBox.classList.remove('warning', 'danger');
-        document.getElementById('timerLabel').textContent = 'متبقي';
+        document.getElementById('timerLabel').textContent = 'وقت محدود';
     }
 }
 
@@ -1267,11 +1176,9 @@ function continueToID() {
     
     const display = document.getElementById('selectedPlatformDisplay');
     const name = selectedPlatform === '1xbet' ? '1XBET' : 'MELBET';
-    const icon = selectedPlatform === '1xbet' ? 
-        '<i class="fas fa-dice" style="color: #FF6B9D; font-size: 2rem;"></i>' : 
-        '<i class="fas fa-coins" style="color: #00DFA2; font-size: 2rem;"></i>';
+    const imgSrc = selectedPlatform === '1xbet' ? '2.png' : '3.png';
     
-    display.innerHTML = `${icon}<span style="font-size: 1.3rem; font-weight: 700;">${name}</span>`;
+    display.innerHTML = `<img src="${imgSrc}" style="width: 50px; height: 50px; object-fit: contain;"><span style="font-size: 1.3rem; font-weight: 700;">${name}</span>`;
     showScreen("start");
 }
 
@@ -1301,9 +1208,9 @@ function startAnalysis() {
     document.getElementById('platformInfo').textContent = name;
     document.getElementById('userIdInfo').textContent = userID;
     
-    // محاكاة التحميل
+    // محاكاة التحميل السريع
     let progress = 0;
-    let timeLeft = 10;
+    let timeLeft = 5;
     
     const timeInt = setInterval(() => {
         timeLeft--;
@@ -1311,7 +1218,7 @@ function startAnalysis() {
     }, 1000);
     
     const progInt = setInterval(() => {
-        progress += Math.random() * 8 + 3;
+        progress += Math.random() * 15 + 5;
         if (progress > 100) progress = 100;
         
         document.getElementById('progressBar').style.width = `${progress}%`;
@@ -1326,137 +1233,193 @@ function startAnalysis() {
                 showAlert('تم تحليل أنماط الطائرة بنجاح!', 'success');
             }, 500);
         }
-    }, 200);
+    }, 150);
 }
 
-// ===== دوال لعبة CRASH =====
+// ===== دوال لعبة CRASH الواقعية =====
 function initCrashGame() {
     const name = selectedPlatform === '1xbet' ? '1XBET' : 'MELBET';
     document.getElementById('gamePlatform').textContent = name;
     document.getElementById('gameUserId').textContent = `ID: ${userID}`;
     
-    // إضافة توقعات عشوائية
-    predictionHistory = [
-        { multiplier: 2.34, crashed: false },
-        { multiplier: 1.89, crashed: false },
-        { multiplier: 3.12, crashed: true },
-        { multiplier: 1.56, crashed: false }
-    ];
+    // إضافة توقعات عشوائية للتاريخ
+    predictionHistory = [];
+    for (let i = 0; i < 5; i++) {
+        const histMultiplier = (Math.random() * 8 + 1.2).toFixed(2);
+        predictionHistory.push({
+            multiplier: parseFloat(histMultiplier),
+            crashed: Math.random() > 0.6
+        });
+    }
     
     updateHistoryList();
     
-    // توقع أولي
-    generatePrediction();
-    
-    // بدء محاكاة الطائرة
-    startFlightSimulation();
+    // بدء العد التنازلي للجولة الأولى
+    startCountdown();
 }
 
-function startFlightSimulation() {
+function startCountdown() {
+    isWaiting = true;
+    isFlying = false;
     if (flightInterval) clearInterval(flightInterval);
     
-    currentMultiplier = 1.00;
-    isFlying = true;
+    document.getElementById('planeStatus').innerHTML = '⏳ انتظار الجولة التالية...';
+    document.getElementById('planeStatus').style.color = 'var(--gray)';
+    document.getElementById('currentMultiplier').textContent = '1.00x';
+    
+    // إعادة الطائرة لوضعها الطبيعي
+    const planeImage = document.getElementById('planeImage');
+    planeImage.style.transform = 'rotate(0deg) scale(1)';
+    planeImage.style.filter = 'drop-shadow(0 0 20px rgba(232, 72, 85, 0.6))';
+    document.getElementById('flightProgress').style.width = '0%';
+    
+    // توليد مضاعف الانفجار لهذه الجولة
     crashMultiplier = generateCrashMultiplier();
     
-    document.getElementById('planeStatus').innerHTML = 'الطائرة في حالة إقلاع ✈️';
-    document.getElementById('planeStatus').style.color = 'var(--gray)';
+    // توليد توقع
+    generatePrediction();
     
+    // بدء العد التنازلي (5 ثواني مثل اللعبة الحقيقية)
+    let countdown = 5.0;
+    document.getElementById('countdownValue').textContent = countdown.toFixed(1);
+    
+    if (countdownInterval) clearInterval(countdownInterval);
+    countdownInterval = setInterval(() => {
+        countdown -= 0.1;
+        if (countdown <= 0) {
+            clearInterval(countdownInterval);
+            if (isWaiting) {
+                startFlight();
+            }
+        } else {
+            document.getElementById('countdownValue').textContent = countdown.toFixed(1);
+        }
+    }, 100);
+}
+
+function startFlight() {
+    isWaiting = false;
+    isFlying = true;
+    currentMultiplier = 1.00;
+    
+    document.getElementById('planeStatus').innerHTML = '✈️ الطائرة تقلع...';
+    document.getElementById('planeStatus').style.color = 'var(--accent)';
+    document.getElementById('predictBtn').disabled = false;
+    
+    // الطائرة تطير بسرعة - زيادة المضاعف بسرعة
     flightInterval = setInterval(() => {
         if (!isFlying) return;
         
-        // زيادة المضاعف
-        currentMultiplier += 0.03;
+        // زيادة المضاعف بسرعة (محاكاة واقعية)
+        currentMultiplier += 0.07;
         document.getElementById('currentMultiplier').textContent = `${currentMultiplier.toFixed(2)}x`;
         
         // تحديث شريط التقدم
-        let progress = (currentMultiplier / 10) * 100;
+        let progress = (currentMultiplier / 12) * 100;
         if (progress > 100) progress = 100;
         document.getElementById('flightProgress').style.width = `${progress}%`;
         
-        // هل انفجرت؟
+        // تحريك الطائرة للأعلى
+        const planeImage = document.getElementById('planeImage');
+        planeImage.style.transform = `rotate(-${Math.min(15, currentMultiplier * 2)}deg) translateY(-${Math.min(10, currentMultiplier)}px)`;
+        planeImage.style.filter = `drop-shadow(0 0 ${15 + currentMultiplier * 2}px rgba(232, 72, 85, 0.8))`;
+        
+        // هل انفجرت الطائرة؟
         if (currentMultiplier >= crashMultiplier) {
             crashPlane();
         }
-    }, 150);
+    }, 80); // سرعة عالية
 }
 
 function crashPlane() {
     isFlying = false;
     clearInterval(flightInterval);
     
-    document.getElementById('planeIcon')?.classList;
-    document.getElementById('currentMultiplier').innerHTML = `💥 ${crashMultiplier.toFixed(2)}x`;
-    document.getElementById('planeStatus').innerHTML = 'انفجرت الطائرة! 🔥';
+    // تسجيل نقطة الانفجار
+    const crashPoint = parseFloat(currentMultiplier.toFixed(2));
+    document.getElementById('currentMultiplier').innerHTML = `💥 ${crashPoint}x`;
+    document.getElementById('planeStatus').innerHTML = '💥 تحطمت الطائرة!';
     document.getElementById('planeStatus').style.color = 'var(--danger)';
+    document.getElementById('predictBtn').disabled = true;
+    
+    // تأثير تحطم الطائرة - الصورة تنقلب وتصبح حمراء
+    const planeImage = document.getElementById('planeImage');
+    planeImage.style.transform = 'rotate(180deg) scale(0.8)';
+    planeImage.style.filter = 'drop-shadow(0 0 30px rgba(232, 72, 85, 1)) brightness(1.5)';
     
     // إضافة للتاريخ
     predictionHistory.unshift({
-        multiplier: parseFloat(crashMultiplier.toFixed(2)),
+        multiplier: crashPoint,
         crashed: true
     });
     
     if (predictionHistory.length > 6) predictionHistory.pop();
     updateHistoryList();
     
-    // توقع جديد بعد الانفجار
+    // تحديث دقة التوقع
+    updateAccuracy(crashPoint);
+    
+    // انتظار 3 ثواني ثم بدء جولة جديدة
     setTimeout(() => {
         if (document.getElementById('game').classList.contains('active')) {
-            resetFlight();
+            startCountdown();
         }
-    }, 2000);
-}
-
-function resetFlight() {
-    currentMultiplier = 1.00;
-    isFlying = true;
-    crashMultiplier = generateCrashMultiplier();
-    
-    document.getElementById('currentMultiplier').textContent = '1.00x';
-    document.getElementById('flightProgress').style.width = '0%';
-    document.getElementById('planeStatus').innerHTML = 'الطائرة في حالة إقلاع ✈️';
-    document.getElementById('planeStatus').style.color = 'var(--gray)';
-    
-    generatePrediction();
-    
-    flightInterval = setInterval(() => {
-        if (!isFlying) return;
-        
-        currentMultiplier += 0.03;
-        document.getElementById('currentMultiplier').textContent = `${currentMultiplier.toFixed(2)}x`;
-        
-        let progress = (currentMultiplier / 10) * 100;
-        if (progress > 100) progress = 100;
-        document.getElementById('flightProgress').style.width = `${progress}%`;
-        
-        if (currentMultiplier >= crashMultiplier) {
-            crashPlane();
-        }
-    }, 150);
+    }, 3000);
 }
 
 function generateCrashMultiplier() {
-    // خوارزمية توليد مضاعف الانفجار
+    // خوارزمية توليد مضاعف الانفجار - محاكاة واقعية
     const rand = Math.random();
-    if (rand < 0.3) return 1.5 + Math.random() * 1;
-    else if (rand < 0.6) return 2.5 + Math.random() * 1.5;
-    else if (rand < 0.85) return 4 + Math.random() * 2;
-    else return 6 + Math.random() * 5;
+    if (rand < 0.4) return 1.2 + Math.random() * 0.8;     // 40% - انفجار مبكر
+    else if (rand < 0.7) return 2.0 + Math.random() * 1.5; // 30% - مضاعف متوسط
+    else if (rand < 0.9) return 3.5 + Math.random() * 2.5; // 20% - مضاعف عالي
+    else return 6.0 + Math.random() * 5;                  // 10% - مضاعف نادر
 }
 
 function generatePrediction() {
-    // خوارزمية توقع الانفجار
-    const basePrediction = crashMultiplier * (0.85 + Math.random() * 0.2);
-    const prediction = Math.max(1.2, basePrediction);
+    // خوارزمية توقع الانفجار - ذكية وتتعلم من التاريخ
+    let basePrediction;
     
+    if (predictionHistory.length > 0) {
+        // تحليل آخر 3 انفجارات
+        const lastCrashes = predictionHistory.filter(h => h.crashed).slice(0, 3);
+        if (lastCrashes.length > 0) {
+            const avgCrash = lastCrashes.reduce((sum, h) => sum + h.multiplier, 0) / lastCrashes.length;
+            basePrediction = avgCrash * (0.85 + Math.random() * 0.25);
+        } else {
+            basePrediction = crashMultiplier * (0.8 + Math.random() * 0.3);
+        }
+    } else {
+        basePrediction = crashMultiplier * (0.8 + Math.random() * 0.3);
+    }
+    
+    const prediction = Math.max(1.15, Math.min(10, basePrediction));
     document.getElementById('predictionValue').textContent = `${prediction.toFixed(2)}x`;
-    
-    // حساب نسبة الدقة
-    const accuracy = Math.floor(85 + Math.random() * 10);
-    document.getElementById('accuracyRate').textContent = `${accuracy}%`;
 }
 
-function predictCrash() {
+function updateAccuracy(actualCrash) {
+    // تحديث نسبة الدقة بناءً على التوقع السابق
+    const predictionEl = document.getElementById('predictionValue');
+    const prediction = parseFloat(predictionEl.textContent.replace('x', ''));
+    
+    const difference = Math.abs(actualCrash - prediction);
+    let accuracyChange;
+    
+    if (difference < 0.3) accuracyChange = +2;
+    else if (difference < 0.8) accuracyChange = +0.5;
+    else if (difference < 1.5) accuracyChange = -1;
+    else accuracyChange = -3;
+    
+    predictionAccuracy = Math.min(98, Math.max(75, predictionAccuracy + accuracyChange));
+    document.getElementById('accuracyRate').textContent = `${Math.floor(predictionAccuracy)}%`;
+}
+
+function forcePrediction() {
+    if (!isFlying) {
+        showAlert('لا يمكن التوقع الآن - انتظر الجولة القادمة', 'warning');
+        return;
+    }
+    
     generatePrediction();
     showAlert(`تم توليد توقع جديد: ${document.getElementById('predictionValue').textContent}`, 'success', 1500);
 }
@@ -1481,18 +1444,16 @@ function updateHistoryList() {
     });
 }
 
-function resetGame() {
-    clearInterval(flightInterval);
-    resetFlight();
-    showAlert('تم إعادة تشغيل المحاكاة', 'info');
-}
-
 function exitGame() {
     clearInterval(flightInterval);
+    clearInterval(countdownInterval);
     isFlying = false;
+    isWaiting = false;
+    
     showScreen("platformSelection");
     selectedPlatform = null;
     userID = "";
+    
     document.querySelectorAll('.platform-card').forEach(c => c.classList.remove('active'));
     document.getElementById('continueBtn').disabled = true;
 }
@@ -1520,6 +1481,29 @@ window.onload = function() {
     const passField = document.getElementById('loginPassword');
     if (emailField) emailField.value = 'test@test.com';
     if (passField) passField.value = 'test123';
+    
+    // معالجة أخطاء الصور
+    const img1 = document.getElementById('1xbet-img');
+    const img2 = document.getElementById('melbet-img');
+    const planeImg = document.getElementById('planeImage');
+    
+    if (img1) {
+        img1.onerror = function() {
+            this.parentElement.innerHTML = '<i class="fas fa-dice" style="font-size: 2.2rem; color: #FF6B9D;"></i>';
+        };
+    }
+    
+    if (img2) {
+        img2.onerror = function() {
+            this.parentElement.innerHTML = '<i class="fas fa-coins" style="font-size: 2.2rem; color: #00DFA2;"></i>';
+        };
+    }
+    
+    if (planeImg) {
+        planeImg.onerror = function() {
+            this.src = 'https://cdn-icons-png.flaticon.com/512/3441/3441996.png';
+        };
+    }
     
     // معالجة Enter
     const pass = document.getElementById('loginPassword');
